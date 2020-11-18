@@ -1,0 +1,118 @@
+@import "colors";
+@import "mixin";
+
+.intro{
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  min-height: 800px;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  background: #D7F8C3;
+
+  .header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .text{
+    z-index: 1;
+    text-align: center;
+
+    h3{
+      @include font-size(64px);
+      line-height: 64px;
+      margin-bottom: 32px;
+      font-weight: bold;
+      letter-spacing: -2px;
+
+      @media only screen and (max-width: 1199.98px){
+        @include font-size(56px);
+        line-height: 60px;
+      }
+
+      @media only screen and (max-width: 767.98px){
+        @include font-size(64px);
+        line-height: 64px;
+      }
+
+      @media only screen and (max-width: 575.98px){
+        @include font-size(56px);
+        line-height: 60px;
+      }
+    }
+
+    p{
+      @include font-size(32px);
+      line-height: 40px;
+      margin-bottom: 46px;
+      font-weight: bold;
+
+      @media only screen and (max-width: 1199.98px){
+        @include font-size(28px);
+        line-height: 32px;
+      }
+
+      @media only screen and (max-width: 767.98px){
+        @include font-size(32px);
+        line-height: 40px;
+      }
+
+      @media only screen and (max-width: 575.98px){
+        @include font-size(28px);
+        line-height: 32px;
+      }
+    }
+  }
+
+  .bottom{
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 800px){
+  .scroll-down{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 44px;
+  }
+}
+
+@media only screen and (max-width: 799.98px) {
+  .intro-off-canvas{
+    img{
+     top: 3% !important;
+     right: 4% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .intro-off-canvas{
+    img{
+      display: none;
+    }
+  }
+
+  .intro{
+    .logo{
+      margin-bottom: 20px;
+    }
+  }
+
+  .text{
+    h3{
+      font-size: 32px !important;
+      line-height: 32px !important;
+    }
+
+    .btn{
+      margin-bottom: 16px !important;
+    }
+  }
+}
