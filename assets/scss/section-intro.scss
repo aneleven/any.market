@@ -3,7 +3,7 @@
 
 .intro{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   height: 100vh;
   min-height: 800px;
   padding-bottom: 0;
@@ -71,6 +71,11 @@
     position: relative;
     display: flex;
     justify-content: center;
+    min-height: 233px;
+
+    img{
+      position: absolute;
+    }
   }
 }
 

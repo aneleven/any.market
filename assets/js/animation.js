@@ -39,3 +39,20 @@ const scene = new ScrollMagic.Scene({
 .setPin('#trigger1', {pushFollowers: true})
 .addTo(controller);
 
+$(window).resize( () => {
+	tl.pause();
+
+	for (let i = 0; i < animated.length; i++){
+		animated[i].style.minWidth = container.clientWidth.toString() + 'px';
+	}
+
+	tl.remove(tween1);
+
+	tween1 = TweenMax.to('.animation-one-item', 1, {
+		minWidth: container.clientWidth / animated.length,
+	})
+
+	tl.add(tween1);
+	tl.play();
+})
+

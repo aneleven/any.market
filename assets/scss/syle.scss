@@ -183,7 +183,6 @@ footer, .contacts .footer {
   align-items: center;
   padding-top: 38px;
   width: 100%;
-  max-width: 592px;
   margin:  0 auto;
 
   @media only screen and (max-width: 1199.98px){
@@ -213,7 +212,7 @@ footer, .contacts .footer {
   .footer-left, .footer-right{
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     @media only screen and (max-width: 1199.98px){
       border-top: 2px solid rgba(15,24,37,.05);
