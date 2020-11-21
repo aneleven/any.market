@@ -48,7 +48,7 @@
 
         svg {
           position: absolute;
-          top: 8px;
+          top: 0;
 
           text {
             font-size: 40px;
@@ -183,6 +183,10 @@
     width: 100%;
     background: #243143;
     border-radius: 30px;
+
+    @media only screen and (max-width: 451.98px){
+      padding: 16px 20px;
+    }
 
     p {
       font-weight: bold;

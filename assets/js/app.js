@@ -298,8 +298,7 @@ $(document).ready(function() {
           setMenuImage($('.menu li[data-href="go-intro"]'));
           break;
 
-        case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel):
-          setMenuImage($('.menu li[data-href="go-online-sales"]'));
+        case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel -200):
 
           if (animationFlag == false){
             playNext();
@@ -308,7 +307,7 @@ $(document).ready(function() {
           break;
         
         case (scroll >= sectionStartSalesCarousel):
-          setMenuImage($('.menu li[data-href="go-start-sales-carousel"]'));
+          setMenuImage($('.menu li[data-href="start-sales-carousel"]'));
           break
 
 

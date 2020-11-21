@@ -6,15 +6,19 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: 56px;
 
   .logo{
     max-width: 113px;
-    margin-bottom: 72px;
+    margin-bottom: 40px;
+  }
+
+  .footer-image{
+    max-width: 280px;
   }
   
   .btn{
-    margin-top: 64px;
-    margin-bottom: 40px;
+    margin: 40px 0;
   }
 
   .scroll-up{
@@ -30,5 +34,10 @@
     img{
       max-width: 20px;
     }
+  }
+
+  .footer{
+    padding-top: 0 !important;
+    padding-bottom: 24px;
   }
 }
