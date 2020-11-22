@@ -231,7 +231,7 @@
   }
 }
 
-@media only screen and (min-width: 800px){
+@media only screen and (min-width: 992px){
   .progress-results-container{
     .navigation{
       .next, .prev{
@@ -304,16 +304,6 @@
   
       .prev{
         left: -75px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 991.98px){
-  .progress-results-container{
-    .navigation{
-      .next, .prev{
-       display: none;
       }
     }
   }

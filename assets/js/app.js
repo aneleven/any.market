@@ -294,9 +294,8 @@ $(document).ready(function() {
       }
 
       switch (true) {
-        case (scroll < sectionOnlineSales):
+        case (scroll < sectionStartSalesCarousel):
           setMenuImage($('.menu li[data-href="go-intro"]'));
-          break;
 
         case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel -200):
 
