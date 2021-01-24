@@ -241,12 +241,30 @@ $(document).ready(function() {
    * Menu item click
    */
 
-    $('.menu-item a').click(function (e) {    
-      $('.menu-item.active').removeClass('active');
-      $(this).closest('.menu-item').addClass('active');
-    });
+  $('.menu-item a').click(function (e) {    
+    $('.menu-item.active').removeClass('active');
+    $(this).closest('.menu-item').addClass('active');
+  });
 
-    let animationFlag = false;
+  let animationFlag = false;
+
+  if (tl.progress() >= 0.5){
+    document.querySelector('.start-sales').style.overflow = '';
+  }else{
+    document.querySelector('.start-sales').style.overflow = 'hidden';
+  }
+
+  window.onscroll = function () {   
+    
+    let idStartLocation = $("#go-advantages").offset().top;
+    let idEndLocation = $("#go-contacts").offset().top;
+    console.log(idStartLocation);
+    console.log(idEndLocation);
+    let sectionOnlineSales = $("#go-online-sales").offset().top; 
+    let sectionStartSalesCarousel = $("#go-start-sales-carousel").offset().top; 
+    let sectionSupport = $('#go-support').offset().top; 
+
+    let scroll = $(window).scrollTop();
 
     if (tl.progress() >= 0.5){
       document.querySelector('.start-sales').style.overflow = '';
@@ -254,66 +272,96 @@ $(document).ready(function() {
       document.querySelector('.start-sales').style.overflow = 'hidden';
     }
 
-    let setMenuImage = (listItem) => {
-      if (!listItem.hasClass('active')){
-        $('.menu li.active').removeClass('active');
-        listItem.addClass('active');
+    if (scroll >= idStartLocation && scroll <= idEndLocation) {
+      $(".position-top").addClass("is-open");
+    } else {
+      $(".position-top").removeClass("is-open");
+    }
+
+    if (scroll >= idStartLocation){
+      $('.home-page .left header').addClass('active');
+      $('.menu-image img').css('maxWidth', '80%');
+    }else{
+      $('.home-page .left header').removeClass('active');
+      $('.menu-image img').css('maxWidth', '90%');
+    }
+
+    if (scroll >= sectionStartSalesCarousel - 600 && scroll <= sectionSupport - 300){
+      if ($('.pause').hasClass('fixed')){
+        $('.pause').removeClass('fixed');
+      }
+    }else{
+      if (!$('.pause').hasClass('fixed')){
+        $('.pause').addClass('fixed');
       }
     }
 
-    window.onscroll = function () {   
-      let idStartLocation = $("#go-online-sales").offset().top;
-      let idEndLocation = $("#go-contacts").offset().top;
+    switch (true) {
+      case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel -200):
 
-      let sectionOnlineSales = $("#go-online-sales").offset().top; 
-      let sectionStartSalesCarousel = $("#go-start-sales-carousel").offset().top; 
-      let sectionSupport = $('#go-support').offset().top; 
-
-      let scroll = $(window).scrollTop();
-
-      if (tl.progress() >= 0.5){
-        document.querySelector('.start-sales').style.overflow = '';
-      }else{
-        document.querySelector('.start-sales').style.overflow = 'hidden';
-      }
-
-      if (scroll >= idStartLocation && scroll + 800 <= idEndLocation) {
-        $(".position-top").addClass("is-open");
-      } else {
-        $(".position-top").removeClass("is-open");
-      }
-
-      if (scroll >= sectionStartSalesCarousel - 600 && scroll <= sectionSupport - 300){
-        if ($('.pause').hasClass('fixed')){
-          $('.pause').removeClass('fixed');
+        if (animationFlag == false){
+          playNext();
+          animationFlag = true;
         }
-      }else{
-        if (!$('.pause').hasClass('fixed')){
-          $('.pause').addClass('fixed');
-        }
-      }
+        break;
 
-      switch (true) {
-        case (scroll < sectionStartSalesCarousel):
-          setMenuImage($('.menu li[data-href="go-intro"]'));
-
-        case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel -200):
-
-          if (animationFlag == false){
-            playNext();
-            animationFlag = true;
-          }
-          break;
-        
-        case (scroll >= sectionStartSalesCarousel):
-          setMenuImage($('.menu li[data-href="start-sales-carousel"]'));
-          break
-
-
-        default:
-          break;
-      }
+      default:
+        break;
     }
+  }
 
-    window.scrollTo(window.scrollX, window.scrollY - 1);
-  });
+  window.scrollTo(window.scrollX, window.scrollY - 1);
+
+  ///
+  ///	CorrelationId obtaining
+  ///
+
+  var potCorrelationId = localStorage.getItem('correlationId');
+  let url = window.location.search;
+  console.log('url=' + url);
+  		
+  	// If correlationId ixist in localStorage
+  	if(localStorage.getItem("correlationId") == null) {
+	  	// check for utm 
+	  	if (url.indexOf('utm_') +1 ) {
+		  	var request_url = 'https://any.market/api/metrics/landing?source=landing&' + url.substr(1);
+	  	} else {
+	    	console.log('utm меток нет');
+	    	var request_url = 'https://any.market/api/metrics/landing?source=landing&utm_source=';
+	    }
+		  	// get correlationID
+		  	var request = new XMLHttpRequest();
+		  	request.open('POST', request_url, true);
+		  	request.addEventListener('readystatechange', function() {
+			  	if ((request.readyState==4) && (request.status==200)) {
+	
+				    console.log(request);
+				    var correlationId = request.responseText;
+				    correlationId = correlationId.replace(/"([^"]+(?="))"/g, '$1');
+				    correlationId = correlationId.replace(/[\s.,%]/g, '');
+				    
+				    localStorage.setItem('correlationId', JSON.stringify(correlationId));
+				    
+				    let act_but = document.querySelectorAll(".act_but");
+				    console.log(act_but);
+				    
+				    for (var i = 0; i < act_but.length; i++) {
+					   act_but[i].href = 'https://any.market/start/store?correlationId=' + correlationId;
+					}
+			  	}
+		  	}); 
+		  	// sending request
+		  	request.send();
+	} else {
+		console.log('No correlationId till that moment');
+		var correlationId = potCorrelationId.replace(/"([^"]+(?="))"/g, '$1');
+	}
+	
+	let act_but = document.querySelectorAll(".act_but");
+    console.log(act_but);
+    
+    console.log(correlationId); //string
+    for (var i = 0; i < act_but.length; i++) {
+	   act_but[i].href = 'https://any.market/start/store?correlationId=' + correlationId;
+	}
+});

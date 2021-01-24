@@ -1,0 +1,45 @@
+<?php echo get_template_directory_uri(); ?>/assets/image/down-arrow.svg
+
+-----------------------
+
+@media screen and (max-width: px){
+
+}
+
+----------------------
+
+https://any.market/start/store
+https://any.market/
+target=“_blank”
+act_but
+
+------------------
+
+display: grid;
+grid-template-rows: 1fr;
+grid-auto-flow: row;
+
+grid-template-columns: 1fr 1fr 1fr;
+grid-gap: 30px;
+
+-------------------
+
+<div class="col-md-6 about-creator-left order-2 order-md-1">
+  <div>
+    <h3 class="title wow animate__animated animate__fadeInUp">Привет!</h3>
+
+    <h3 class="wow animate__animated animate__fadeInUp">
+    <b>Чтобы познакомить тебя с миссией нашей команды,</b> нужно познакомить тебя с основателем проекта
+    </h3>
+
+    <h5 class="wow animate__animated animate__fadeInUp"><b>Она год прожила в Португалии и</b> объездила пол мира <b>, прежде чем поняла, что</b> хочет показать его людям</h5>
+  </div>
+
+  <div>
+    <h3 class="wow animate__animated animate__fadeInUp">
+      <b>Аня долго и бережно подбирала</b> маршруты, интересные активности<b>, и вот, проекту уже второй год.</b>
+    </h3>
+
+    <h5 class="wow animate__animated animate__fadeInUp"><b>Наша идея в том, чтобы</b> открывать для тебя новый мир<b>, расширяя границы и пробуя новое</b></h5>
+  </div>
+</div>

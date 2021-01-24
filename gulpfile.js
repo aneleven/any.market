@@ -26,10 +26,10 @@ function style(){
  */
 function watch(){
   browserSync.init({
-    proxy: "http://work/Projects/any.market/app"
+    proxy: "localhost/anymarket/app"
   });
 
-  gulp.watch("./assets/scss/*.scss", style);
+  gulp.watch("./assets/scss/**/*.scss", style);
   gulp.watch('**/*.html').on('change', browserSync.reload);
   gulp.watch('**/*.js').on('change', browserSync.reload);
 }

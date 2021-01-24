@@ -4,15 +4,79 @@
 .btn{
   display: flex;
   justify-content: center;
-  padding: 8px 24px ;
+  padding: 8px 24px;
   background-color: $colorText;
   border-radius: 100px;
   line-height: 24px;
   color: #FFFFFF;
   font-weight: 600;
 
+  @media screen and (max-width: 575.98px){
+    padding: 8px 14px;
+  }
+  
+
   &-white{
     background-color: #fff;
     color: #243143;
+  }
+
+  &-gray{
+    background: #A5ACB0;
+
+    img{
+      margin-right: 8px;
+    }
+  }
+
+  &-transparent{
+    background: transparent;
+    color: #243143;
+    border: 2px solid rgba(36, 49, 67, 0.2);
+  }
+
+  &-pulse{
+    background: rgb(117, 196, 69);
+    animation: pulse 2s infinite;
+
+    &:hover{
+      img{
+        animation: bounce 1.5s;
+      }
+    }
+
+    img{
+      margin-left: 8px;
+    }
+  }
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(117, 196, 69, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 10px rgba(117, 196, 69, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(117, 196, 69, 0);
+	}
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(-4px);
   }
 }

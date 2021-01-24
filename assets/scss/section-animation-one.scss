@@ -10,6 +10,11 @@
     padding: 24px;
   }
 
+  .scrollmagic-pin-spacer{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   .row{
     max-width: 100% !important;
   }
@@ -52,7 +57,9 @@
 
   .animation-container {
     padding: 0;
-
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
     .row {
       max-width: 327px;
       margin: 0 auto;

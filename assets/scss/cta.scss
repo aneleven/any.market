@@ -1,0 +1,30 @@
+.cta {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #75C445;
+  border-radius: 60px;
+  margin: 0 auto;
+
+  p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 10px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  &-pulse{
+    &:hover{
+      img{
+        animation: bounce 1.5s;
+      }
+    }
+
+    img{
+      margin-left: 8px;
+    }
+  }
+}

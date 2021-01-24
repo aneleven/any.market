@@ -3,6 +3,7 @@
 
 .price{
   overflow: hidden;
+  padding-bottom: 72px;
   
   hr{
     width: 100%;
@@ -45,7 +46,19 @@
     .table{
       border-radius: 20px;
       width: 100%;
-      margin-bottom: 24px;
+      margin-bottom: 40px;
+
+      @media only screen and (max-width: 1199.98px){
+        margin-bottom: 24px;
+      }
+  
+      @media only screen and (max-width: 767.98px){
+        margin-bottom: 40px;
+      }
+  
+      @media only screen and (max-width: 620px){
+        margin-bottom: 24px;
+      }
       
       &-green{
         .table-header{
@@ -58,7 +71,6 @@
       }
   
       &-grey{
-        // margin-right: -40px;
         margin-right: 20px;
         
         .table-header{
@@ -66,37 +78,8 @@
         }
   
         .table-row{
-          // justify-content: flex-start;
           justify-content: space-between;
           background:  #ECEDED;
-
-          // @media only screen and (max-width: 1199.98px){
-          //   justify-content: space-between;
-          // }
-
-          // @media only screen and (max-width: 767.98px){
-          //   justify-content: unset;
-          // }
-
-          // @media only screen and (max-width: 575.98px){
-          //   justify-content: space-between;
-          // }
-
-          // img{
-          //   margin-left: 30px;
-
-          //   @media only screen and (max-width: 1199.98px){
-          //     margin-left: 0;
-          //   }
-
-          //   @media only screen and (max-width: 767.98px){
-          //     margin-left: 30px;
-          //   }
-
-          //   @media only screen and (max-width: 575.98px){
-          //     margin-left: 0;
-          //   }
-          // }
         }
       }
   
@@ -105,10 +88,10 @@
         justify-content: space-between;
         align-items: center;
   
-        padding: 24px;
+        padding: 16px 24px;
   
         p{
-          @include font-size(18px);
+          @include font-size(16px);
           font-weight: 600;
           line-height: 24px;
         }
@@ -120,13 +103,13 @@
   
         h5{
           font-weight: bold;
-          @include font-size(24px);;
+          @include font-size(20px);
           line-height: 32px;
         }
       }
   
       &-row{
-        padding: 24px 24px 0 24px;
+        padding: 16px 24px 0;
   
         &.last-row{
           border-bottom-left-radius: 20px;
@@ -141,6 +124,9 @@
     }
   }
 
+  &-cta{
+    display: flex;
+  }
 
   .questions{
     font-weight: bold;

@@ -2,11 +2,11 @@
 @import "mixin";
 
 .contacts{
-  background: rgba(15, 24, 37, 0.05);
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding-top: 56px;
+  background: #FFFDE6;
 
   .logo{
     max-width: 113px;
@@ -21,18 +21,32 @@
     margin: 40px 0;
   }
 
-  .scroll-up{
+  .buttons{
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    background: #243143;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-bottom: 48px;
+    width: 100%;
+    margin-bottom: 40px;
 
-    img{
-      max-width: 20px;
+    @media only screen and (max-width: 440px){
+      flex-direction: column;
+    }
+
+    a{
+      &:not(:last-of-type){
+        margin-right: 24px;
+
+        @media only screen and (max-width: 440px){
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+      }
+
+      &:last-of-type{
+        @media only screen and (max-width: 440px){
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 

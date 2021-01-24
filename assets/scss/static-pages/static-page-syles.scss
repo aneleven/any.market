@@ -1,0 +1,55 @@
+.static-page{
+  .off-canvas.position-top{
+    @media only screen and (max-width: 812px){
+      transform: translateY(0px);
+    }
+  }
+
+  .right{
+    .box{
+      position: relative;
+    }
+  }
+
+  &-design{
+    .left{
+      background: #EFF9FF;
+    }
+  }
+
+  &-delivery{
+    .left{
+      background: #E8FCEA;
+    }
+  }
+
+  &-payment{
+    .left{
+      background: #F2F4FF;
+    }
+  }
+
+  &-map-location{
+    .left{
+      background: rgba($color: #2697FF, $alpha: .1);
+    }
+  }
+
+  &-qr{
+    .left{
+      background: rgba($color: #F34B15, $alpha: .1);
+    }
+  }
+
+  .btn-back{
+    position: fixed;
+    bottom: 36px;
+    left: 78%;
+    transform: translateX(-78%);
+
+    @media only screen and (max-width: 812px){
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

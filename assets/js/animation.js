@@ -21,10 +21,10 @@ tl.add(tween1);
  
 let variable;
 
-if (window.innerWidth <= 799.98){
-	variable = 0; // изменение параметра триггера для mob
+if (window.innerWidth <= 575.98){
+	variable = 0.75; // изменение параметра триггера для mob
 }else if (window.innerWidth >= 800 && window.innerWidth <= 1980){
-	variable = 0.2; // изменение параметра триггера для desktop
+	variable = .6; // изменение параметра триггера для desktop
 }else if (window.innerWidth >= 1981){
 	variable = 0.55;
 }
@@ -32,7 +32,7 @@ if (window.innerWidth <= 799.98){
 const scene = new ScrollMagic.Scene({
 	triggerElement: "#trigger1",
 	triggerHook: variable,
-	duration: 300 // время анимации
+	duration: 200 // время анимации
 })
 .setTween(tl)
 // .addIndicators() // Показывает контролы анимации на странице (старт, конец и триггер)

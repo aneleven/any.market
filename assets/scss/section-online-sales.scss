@@ -32,4 +32,28 @@
       margin-bottom: 40px;
     }
   }
+
+  h5.double-value{
+    display: flex;
+    align-items: baseline;
+    font-size: 400px;
+    line-height: 484px;
+    color: #ffd874;
+
+    @media only screen and (max-width: 425px){
+      font-size: 300px;
+      line-height: 404px;
+    }
+    
+    small {
+      font-size: 240px;
+      line-height: 290px;
+      color: rgba(255, 216, 116, 0.25);
+
+      @media only screen and (max-width: 425px){
+        font-size: 200px;
+        line-height: 240px;
+      }
+    }
+  }
 }

@@ -2,10 +2,8 @@
 @import "mixin";
 
 .start-sales{
-  // background: linear-gradient(180deg, #B6D8A2 0%, #B6D8A2 100%);
   position: relative;
   min-height: auto;
-  // overflow: hidden;
   padding: 0;
   background: linear-gradient(180deg, #B6D8A2 0%, rgba(248, 248, 248, 0) 100%);
 
@@ -52,7 +50,6 @@
       transform: translateX(-50%);
       width: 400px;
       height: 400px;
-      // margin-bottom: -125px;
       border-radius: 50%;
       background-color: #FF7171;
       display: flex;
@@ -121,7 +118,7 @@
     left: 0;
     height: 50%;
     width: 100%;
-    background: linear-gradient(360deg, rgba(231, 232, 233, 0.5) 0%, rgba(231, 232, 233, 0) 100%);
+    background: linear-gradient(360deg, #EBF4E6 0%, rgba(251, 254, 249, 0) 100%);
     mix-blend-mode: inherit;
     z-index: 9;
   }

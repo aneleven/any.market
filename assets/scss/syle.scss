@@ -129,11 +129,12 @@ section {
 .left {
   position: relative;
   width: 50%;
-  background: rgba(15, 24, 37, 0.05);
+  background: #FFFDE6;
 
   .box {
     width: 50%;
     height: 100%;
+    min-height: 768px;
     padding: 40px;
     position: fixed;
     display: flex;
@@ -145,9 +146,38 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all .3s;
+    padding-bottom: 38px;
+    transform: translateY(-150px);
+
+    &.active{
+      transform: translateY(0);
+    }
 
     .logo {
-      max-width: 120px;
+      
+      img{
+        max-width: 120px;
+      }
+    }
+
+    .buttons{
+      display: flex;
+      justify-content: center;
+  
+      a{
+        &:not(:last-of-type){
+          margin-right: 24px;
+
+          @media only screen and (max-width: 1440px){
+            margin-right: 16px;
+          }
+
+          @media screen and (max-width: 1199.98px){
+            display: none;
+          }
+        }
+      }
     }
   }
 
@@ -155,24 +185,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    .menu {
-      li {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
+    height: 100%;
 
-        &.active {
-          display: flex;
-        }
-
-        img {
-          max-width: 100%;
-          width: auto;
-          margin: 0 auto;
-        }
-      }
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 }
@@ -310,18 +328,50 @@ footer, .contacts .footer {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 24px;
+  padding: 16px 24px;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 1);
+
+  @media only screen and (max-width: 575.98px){
+    padding: 15px;
+  }
 
   .logo {
     max-width: 90px;
     z-index: 999;
   }
 
-  a {
+  .buttons{
+    display: flex;
+    justify-content: center;
     z-index: 999;
-    padding: 4px 16px;
+
+    a{
+      padding: 4px 16px;
+
+      &:not(:last-of-type){
+        margin-right: 16px;
+
+        @media only screen and (max-width: 575.98px){
+          margin-right: 0px;
+          font-size: 14px;
+        }
+      }
+
+      &:last-of-type{
+        @media only screen and (max-width: 575.98px){
+          display: none;
+        }
+      }
+
+      &.btn-pulse{
+        @media only screen and (max-width: 575.98px){
+          img{
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -340,6 +390,7 @@ footer, .contacts .footer {
   width: 100%;
   transform: translateY(-280px);
 }
+
 .position-top {
   left: 0;
   top: 0;
@@ -348,8 +399,6 @@ footer, .contacts .footer {
 }
 
 .off-canvas.position-top.is-open {
-  -webkit-transform: translateY(0px);
-  -ms-transform: translateY(0px);
   transform: translateY(0px);
 }
 
