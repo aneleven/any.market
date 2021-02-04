@@ -253,13 +253,19 @@ $(document).ready(function() {
   }else{
     document.querySelector('.start-sales').style.overflow = 'hidden';
   }
+  
+  let setMenuImage = (listItem) => {
+    if (!listItem.hasClass('active')){
+      $('.menu li.active').removeClass('active');
+      listItem.addClass('active');
+    }
+  }
 
   window.onscroll = function () {   
     
-    let idStartLocation = $("#go-advantages").offset().top;
+    let idStartLocation = $("#go-youtube").offset().top;
     let idEndLocation = $("#go-contacts").offset().top;
-    console.log(idStartLocation);
-    console.log(idEndLocation);
+
     let sectionOnlineSales = $("#go-online-sales").offset().top; 
     let sectionStartSalesCarousel = $("#go-start-sales-carousel").offset().top; 
     let sectionSupport = $('#go-support').offset().top; 
@@ -297,6 +303,9 @@ $(document).ready(function() {
     }
 
     switch (true) {
+      case (scroll < sectionStartSalesCarousel):
+        setMenuImage($('.menu li[data-href="go-intro"]'));
+
       case (scroll >= sectionOnlineSales && scroll < sectionStartSalesCarousel -200):
 
         if (animationFlag == false){
@@ -304,6 +313,11 @@ $(document).ready(function() {
           animationFlag = true;
         }
         break;
+      
+      case (scroll >= sectionStartSalesCarousel):
+        setMenuImage($('.menu li[data-href="start-sales-carousel"]'));
+        break
+
 
       default:
         break;

@@ -129,12 +129,11 @@ section {
 .left {
   position: relative;
   width: 50%;
-  background: #FFFDE6;
+  background: #fff;
 
   .box {
     width: 50%;
     height: 100%;
-    min-height: 768px;
     padding: 40px;
     position: fixed;
     display: flex;
@@ -185,12 +184,24 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    .menu {
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
 
-    img {
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
+        &.active {
+          display: flex;
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 60vh;
+          margin: 0 auto;
+        }
+      }
     }
   }
 }
@@ -291,7 +302,7 @@ footer, .contacts .footer {
       .menu {
         li {
           img {
-            max-width: 55%;
+            max-height: 55vh;
           }
         }
       }
