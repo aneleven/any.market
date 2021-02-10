@@ -284,12 +284,22 @@ $(document).ready(function() {
       $(".position-top").removeClass("is-open");
     }
 
+    if (scroll >= idStartLocation - 500 && scroll < idStartLocation + $('#go-youtube').height()){
+      player.playVideo()
+    }
+
     if (scroll >= idStartLocation){
       $('.home-page .left header').addClass('active');
       $('.menu-image img').css('maxWidth', '80%');
     }else{
       $('.home-page .left header').removeClass('active');
       $('.menu-image img').css('maxWidth', '90%');
+    }
+
+    if (scroll >= idStartLocation + $('#go-youtube').height()){
+      if (player.getPlayerState() == 1){
+        player.pauseVideo()
+      }
     }
 
     if (scroll >= sectionStartSalesCarousel - 600 && scroll <= sectionSupport - 300){
@@ -378,4 +388,9 @@ $(document).ready(function() {
     for (var i = 0; i < act_but.length; i++) {
 	   act_but[i].href = 'https://any.market/start/store?correlationId=' + correlationId;
 	}
+
+  /**
+   * YouTube player
+   */
+
 });
