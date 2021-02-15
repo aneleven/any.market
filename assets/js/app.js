@@ -111,17 +111,17 @@ $(document).ready(function() {
         case 'pr1':
           $('.start-sales-carousel .number').text('1');
           exportNumber = '<span>1</span>';
-          $('.start-sales-carousel .title').text('Зарегистрируйтесь и отметьте себя на карте');
+          $('.start-sales-carousel .title').html('Укажите телефон <br> регистрации');
           break;
         case 'pr2':
           $('.start-sales-carousel .number').text('2');
           exportNumber = '<span>2</span>';
-          $('.start-sales-carousel .title').html('Добавьте товары в каталог <br> <small>Количество не ограничено</smal>');
+          $('.start-sales-carousel .title').html('Добавьте детали <br> вашего магазина');
           break;
         case 'pr3':
           $('.start-sales-carousel .number').text('3');
           exportNumber = '<span>3</span>';
-          $('.start-sales-carousel .title').text('Выберите способ доставки и приёма платежей');
+          $('.start-sales-carousel .title').html('Добавьте товары <br> в каталог');
           break;
     
         default:
@@ -192,19 +192,19 @@ $(document).ready(function() {
       case 'pr1':
         $('.start-sales-carousel .number').text('1');
         exportNumber = '<span>1</span>';
-        $('.start-sales-carousel .title').text('Зарегистрируйтесь и отметьте себя на карте');
+        $('.start-sales-carousel .title').html('Укажите телефон <br> регистрации');
         break;
       case 'pr2':
         $('.start-sales-carousel .number').text('2');
         exportNumber = '<span>2</span>';
-        $('.start-sales-carousel .title').html('Добавьте товары в каталог <br> <small>Количество не ограничено</smal>');
+        $('.start-sales-carousel .title').html('Добавьте детали <br> вашего магазина');
         break;
       case 'pr3':
         $('.start-sales-carousel .number').text('3');
         exportNumber = '<span>3</span>';
-        $('.start-sales-carousel .title').text('Выберите способ доставки и приёма платежей');
+        $('.start-sales-carousel .title').html('Добавьте товары <br> в каталог');
         break;
-    
+  
       default:
         break;
     }
@@ -261,10 +261,16 @@ $(document).ready(function() {
     }
   }
 
+  /**
+   * Scroll methods
+   */
+
   window.onscroll = function () {   
     
     let idStartLocation = $("#go-youtube").offset().top;
     let idEndLocation = $("#go-contacts").offset().top;
+
+    let videoStartLocation = $("#responsive-iframe").offset().top;
 
     let sectionOnlineSales = $("#go-online-sales").offset().top; 
     let sectionStartSalesCarousel = $("#go-start-sales-carousel").offset().top; 
@@ -284,8 +290,10 @@ $(document).ready(function() {
       $(".position-top").removeClass("is-open");
     }
 
-    if (scroll >= idStartLocation - 500 && scroll < idStartLocation + $('#go-youtube').height()){
-      player.playVideo()
+    if ((scroll + window.innerHeight) >= videoStartLocation && scroll < idStartLocation + $('#go-youtube').height()){
+      if (player.getPlayerState() != 1){
+        player.playVideo()
+      }
     }
 
     if (scroll >= idStartLocation){
@@ -296,7 +304,7 @@ $(document).ready(function() {
       $('.menu-image img').css('maxWidth', '90%');
     }
 
-    if (scroll >= idStartLocation + $('#go-youtube').height()){
+    if (scroll >= idStartLocation + $('#go-youtube').height() || (scroll + window.innerHeight) < videoStartLocation){
       if (player.getPlayerState() == 1){
         player.pauseVideo()
       }
@@ -325,7 +333,7 @@ $(document).ready(function() {
         break;
       
       case (scroll >= sectionStartSalesCarousel):
-        setMenuImage($('.menu li[data-href="start-sales-carousel"]'));
+        // setMenuImage($('.menu li[data-href="start-sales-carousel"]'));
         break
 
 
@@ -388,9 +396,4 @@ $(document).ready(function() {
     for (var i = 0; i < act_but.length; i++) {
 	   act_but[i].href = 'https://any.market/start/store?correlationId=' + correlationId;
 	}
-
-  /**
-   * YouTube player
-   */
-
 });

@@ -11,6 +11,16 @@
     }
   }
 
+  .left{
+    .navbar{
+      .menu{
+        img{
+          max-width: 240px !important;
+        }
+      }
+    }
+  }
+
   &-design{
     .left{
       background: #EFF9FF;
@@ -31,13 +41,13 @@
 
   &-map-location{
     .left{
-      background: rgba($color: #2697FF, $alpha: .1);
+      background: #FCF0E8;
     }
   }
 
   &-qr{
     .left{
-      background: rgba($color: #F34B15, $alpha: .1);
+      background: #EFF1F3
     }
   }
 
